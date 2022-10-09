@@ -85,7 +85,7 @@ app.get('/users/:id', (req, res) => {
     const id = req.params['id'];
     let result = findUserById(id);
     if (result === undefined || result.length == 0)
-        res.status(404).send('Resource not found.');
+        res.status(404).send('Resource not found.').end();
     else {
         result = {users_list: result};
         res.send(result);
@@ -120,10 +120,15 @@ function addUser(user){
 // REST - delete by id
 app.delete('/users/:id', (req, res) => {
     const id = req.params['id'];
-    let result = deleteUserById(id);
-    if (result === undefined)
-        res.status(404).send('Resource not found.');
+    let result = findUserById(id);
+    console.log("1" + result);
+    if (result == undefined){
+        console.log("err");
+        res.status(404).send('Resource not found.').end();
+    }
     else {
+        deleteUserById(id);
+        console.log(users);
         res.status(204).send(users).end();
     }
 });
@@ -132,7 +137,9 @@ app.delete('/users/:id', (req, res) => {
 function deleteUserById(id) {
     const user = users['users_list'].find( (user) => user['id'] === id); 
     const indId = users['users_list'].indexOf(user);
-    return users['users_list'].splice(indId, 1);
+    console.log(users);
+    console.log(user); 
+    users['users_list'].splice(indId, 1);
 }
 
 function idGenerator(){
