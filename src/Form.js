@@ -5,6 +5,7 @@ function Form(props) {
         {
             name: "",
             job: "",
+            id: ""
         }
     );
 
@@ -13,7 +14,7 @@ function Form(props) {
         const { name, value } = event.target;
         if (name === "job")
             setPerson(
-                {name: person['name'], job: value}
+                {name: person['name'], job: value }
             );
         else
             setPerson(
@@ -23,7 +24,7 @@ function Form(props) {
 
     function submitForm() {
         props.handleSubmit(person);
-        setPerson({name: '', job:''});
+        setPerson({name: '', job: '',id: ''});
     }
 
     return (
@@ -42,6 +43,13 @@ function Form(props) {
                 id="job"
                 value={person.job}
                 onChange={handleChange} />
+            <label htmlFor="id" hidden >Id</label>
+            <input 
+                type="hidden"
+                name="id"
+                id="id"
+                value={person.id}
+                onChange={handleChange}/>
             <input 
                 type="button"
                 value="Submit"

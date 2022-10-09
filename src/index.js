@@ -3,8 +3,6 @@ import ReactDOMClient from "react-dom/client";
 import MyApp from './MyApp'
 import "./index.css";
 
-
-
 // Create the container
 const container = document.getElementById("root");
 
@@ -13,3 +11,4 @@ const root = ReactDOMClient.createRoot(container);
 
 // Initial render: Render an element to the Root
 root.render(<MyApp />);
+
