@@ -46,8 +46,8 @@ function Form(props) {
             <label htmlFor="id" hidden >Id</label>
             <input 
                 type="hidden"
-                name="id"
-                id="id"
+                name="_id"
+                id="_id"
                 value={person.id}
                 onChange={handleChange}/>
             <input 
