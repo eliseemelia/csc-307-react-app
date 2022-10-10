@@ -5,7 +5,7 @@ function Form(props) {
         {
             name: "",
             job: "",
-            id: ""
+            _id: ""
         }
     );
 
@@ -24,7 +24,7 @@ function Form(props) {
 
     function submitForm() {
         props.handleSubmit(person);
-        setPerson({name: '', job: '',id: ''});
+        setPerson({name: '', job: '',_id: ''});
     }
 
     return (
